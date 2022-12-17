@@ -99,7 +99,7 @@ const requestListener = (req, res) => {
 const server = http.createServer(requestListener);
 
 const port = 5000;
-const host = "localhost";
+const host = process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0';
 
 server.listen(port, host, () => {
   console.log(`Server berjalan pada http://${host}:${port}`);
